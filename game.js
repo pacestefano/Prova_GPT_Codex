@@ -1,9 +1,20 @@
 // Gestione stato e rendering
 let level, gridEl, rows, cols;
 let mousePos, pushingDir = null;
+const levelSelect = document.getElementById('levelSelect');
 
-// Carica livello JSON e avvia
-fetch('level1.json').then(r => r.json()).then(data => { level = data; setup(); });
+function loadLevel(file) {
+  pushingDir = null;
+  mousePos = null;
+  fetch(file).then(r => r.json()).then(data => {
+    level = data;
+    document.getElementById('message').textContent = '';
+    setup();
+  });
+}
+
+loadLevel(levelSelect.value);
+levelSelect.addEventListener('change', () => loadLevel(levelSelect.value));
 
 function setup() {
   gridEl = document.getElementById('grid');

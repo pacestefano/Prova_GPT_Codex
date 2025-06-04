@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Mini Labirinto</title>
+<style>
+  body { font-family: sans-serif; display:flex; flex-direction:column; align-items:center; }
+  #grid { display:grid; margin-top:20px; max-width:90vw; max-height:90vh; }
+  .cell { width:40px; height:40px; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; }
+  .rock { background:#555; }
+  .dynamite { background:#f80; }
+  .start, .finish { background:#9f9; }
+  .mouse { width:80%; height:80%; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="gray"/></svg>') center/contain no-repeat; }
+  .flag { width:80%; height:80%; background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="20,20 80,50 20,80" fill="yellow" stroke="black"/></svg>') center/contain no-repeat; }
+  .selected { outline:2px solid blue; }
+  .hidden { opacity:0; transform:scale(0); transition: transform .3s, opacity .3s; }
+</style>
+</head>
+<body>
+<h1>Mini Labirinto</h1>
+<div id="grid"></div>
+<div id="message"></div>
+<script src="game.js"></script>
+</body>
+</html>
